@@ -1,0 +1,24 @@
+﻿rules:
+  - id: STA001
+    name: long-function
+    severity: warning
+    message: "Function has too many statements"
+    enabled: true
+
+  - id: STA000
+    name: syntax-error
+    severity: error
+    message: "Python syntax error"
+    enabled: true
+
+  - id: CPX001
+    name: high-complexity
+    severity: warning
+    message: "Cyclomatic complexity exceeds threshold"
+    enabled: true
+
+  - id: DEP001
+    name: vulnerable-dependency
+    severity: warning
+    message: "Known vulnerable dependency detected"
+    enabled: true

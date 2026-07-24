@@ -1,0 +1,40 @@
+name: 代码质量检查
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  qualiguard:
+    name: QualiGuard 代码分析
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: 测出代码
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装 QualiGuard
+        run: pip install qualiguard
+
+      - name: 运行代码质量扫描
+        run: qg scan . --format sarif --output qualiguard-results.sarif --verbose
+
+      - name: 上传 SARIF
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: qualiguard-results.sarif
+          category: qualiguard
+        continue-on-error: true
+
+      - name: 输出 Markdown 报告
+        run: qg scan . --format markdown >> \n

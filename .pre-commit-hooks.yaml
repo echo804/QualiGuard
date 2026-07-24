@@ -1,0 +1,8 @@
+- id: qualiguard
+  name: QualiGuard
+  description: "Run QualiGuard code quality analysis"
+  entry: qg scan
+  language: python
+  types: [python]
+  args: ["--format", "terminal"]
+  stages: [pre-commit, pre-push]

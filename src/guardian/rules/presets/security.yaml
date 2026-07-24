@@ -1,0 +1,24 @@
+﻿rules:
+  - id: SEC001
+    name: hardcoded-password
+    severity: error
+    message: "Hardcoded password detected"
+    enabled: true
+
+  - id: SEC002
+    name: hardcoded-api-key
+    severity: error
+    message: "Hardcoded API key detected"
+    enabled: true
+
+  - id: SEC003
+    name: hardcoded-secret
+    severity: error
+    message: "Hardcoded secret detected"
+    enabled: true
+
+  - id: SEC004
+    name: dangerous-eval
+    severity: error
+    message: "Use of eval() detected"
+    enabled: true

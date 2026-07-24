@@ -1,0 +1,19 @@
+﻿# QualiGuard Configuration
+checkers:
+  - static
+  - style
+  - security
+  - complexity
+  - dependency
+
+ignore_patterns:
+  - "__pycache__"
+  - "node_modules"
+  - ".venv"
+  - "build/"
+  - "dist/"
+
+max_line_length: 88
+output_format: terminal
+verbose: false
+threads: 4
